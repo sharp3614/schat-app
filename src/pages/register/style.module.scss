@@ -1,0 +1,29 @@
+.Login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  .Container {
+    max-width: 25rem;
+    width: calc(100% - 20%);
+    min-height: 23rem;
+    background: #fff;
+    border: 1px solid #e3d1b1;
+    border-radius: 15px;
+    padding: 1rem;
+  }
+  Input{
+    margin-bottom: 1rem;
+    font-family: "Poppins", sans-serif;
+  }
+  .Footer{
+    display: flex;
+    justify-content: center;
+    Button{
+      margin-top: 5%;
+      width: 70%;
+    }
+  }
+}
