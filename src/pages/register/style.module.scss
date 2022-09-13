@@ -14,16 +14,26 @@
     border-radius: 15px;
     padding: 1rem;
   }
-  Input{
+  Input {
     margin-bottom: 1rem;
     font-family: "Poppins", sans-serif;
   }
   .Footer{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     Button{
       margin-top: 5%;
       width: 70%;
+      margin-bottom: 1rem;
+    }
+    p{
+      border-top: .1rem solid rgba(0, 0, 0, 0.418);
+      padding: 1.5rem 5rem;
+      text-align: center;
+      a{
+        color: #000;
+      }
     }
   }
 }

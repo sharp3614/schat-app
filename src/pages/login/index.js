@@ -1,24 +1,50 @@
-import React, { useRef } from 'react'
+import { useFormik } from 'formik'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import Button from '../../components/button'
 import Input from '../../components/input'
+import { login } from '../../constants/firebase'
+import { loginSchema } from '../../constants/authYup'
 import Style from './style.module.scss'
 
 const Login = () => {
-    let emailRef = useRef()
-    let passwordRef = useRef()
 
-    const handleSubmit = () => {
-        console.log(emailRef, "----", passwordRef)
-    }
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: ''
+        },
+        validationSchema: loginSchema,
+        onSubmit: values => {
+            login(values.email, values.password)
+        },
+    });
 
     return (
         <div className={Style.Login}>
             <div className={Style.Container}>
                 <h1>Login</h1>
-                <Input inputRef={emailRef} title="E posta" name="email" type="text" placeholder='Lütfen e-postanızı giriniz' />
-                <Input inputRef={passwordRef} title="Şifre" name="password" type="password" placeholder='Lütfen şifrenizi giriniz' />
+                <Input
+                    title="E posta"
+                    name="email"
+                    type="text"
+                    placeholder='abc@abc.com'
+                    onChange={formik.handleChange}
+                    inputValue={formik.values.email}
+                    error={formik.errors.email}
+                />
+                <Input
+                    title="Şifre"
+                    name="password"
+                    type="password"
+                    placeholder='xxxxxx'
+                    onChange={formik.handleChange}
+                    inputValue={formik.values.password}
+                    error={formik.errors.password}
+                />
                 <div className={Style.Footer}>
-                    <Button clss="primary" title="Giriş" click={handleSubmit} />
+                    <Button clss="primary" title="Giriş" click={formik.handleSubmit} />
+                    <p>Need an accont? <Link to={'/register'}>SIGN UP</Link></p>
                 </div>
             </div>
         </div>

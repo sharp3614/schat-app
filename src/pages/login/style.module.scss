@@ -19,10 +19,61 @@
   }
   .Footer{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     Button{
       margin-top: 5%;
       width: 70%;
+      margin-bottom: 1rem;
+    }
+    p{
+      border-top: .1rem solid rgba(0, 0, 0, 0.418);
+      padding: 1.5rem 5rem;
+      text-align: center;
+      a{
+        color: #000;
+      }
     }
   }
+}
+
+@media screen and (max-width: 600px) {
+  .Login {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .Container {
+      width: 100%;
+      min-height: 23rem;
+      background: linear-gradient(to top, #d9b9a566, #3591b635);
+      border: 0;
+      border-radius: 15px;
+      padding: 1rem;
+      font-family: "Poppins", sans-serif;
+    }
+    Input{
+      margin-bottom: 1rem;
+    }
+    .Footer{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      Button{
+        margin-top: 5%;
+        width: 70%;
+        margin-bottom: 1rem;
+      }
+      p{
+        border-top: .1rem solid rgba(0, 0, 0, 0.418);
+        padding: 1.5rem 0;
+        text-align: center;
+        a{
+          color: #000;
+        }
+      }
+    }
+  }
+  
 }
