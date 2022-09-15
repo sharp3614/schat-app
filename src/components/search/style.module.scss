@@ -1,0 +1,28 @@
+.chats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    .chat {
+      cursor: pointer;
+      padding: 0.5rem 0.6rem;
+      display: flex;
+      border-bottom: 2px solid rgb(136, 133, 133);
+      img {
+        width: 50px;
+        border-radius: 50%;
+      }
+      .text {
+        padding-left: 1rem;
+        h4 {
+          color: #fff;
+        }
+        .message {
+          font-size: 14px;
+        }
+      }
+      &:hover{
+        background: rgb(130, 121, 121);
+      }
+    }
+  }

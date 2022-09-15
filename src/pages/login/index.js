@@ -3,20 +3,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../../components/button'
 import Input from '../../components/input'
-import { login } from '../../constants/firebase'
 import { loginSchema } from '../../constants/authYup'
+import { useAuth } from '../../context/useAuth'
 import Style from './style.module.scss'
 
 const Login = () => {
 
+    const {login} = useAuth()
     const formik = useFormik({
         initialValues: {
             email: '',
             password: ''
         },
         validationSchema: loginSchema,
-        onSubmit: values => {
-            login(values.email, values.password)
+        onSubmit: async values => {
+          await  login(values.email, values.password)
         },
     });
 
