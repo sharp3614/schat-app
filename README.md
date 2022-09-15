@@ -11,6 +11,6 @@
 > - [X] 3 ) Mesaj gönderme ve alma
 > - [ ] 4 ) Profil Düzenleme 
 > - [ ] 5 ) Mesaj Silme
-> - [ ] 5 ) Mesaj Düzenleme
+> - [ ] 6 ) Mesaj Düzenleme
 
 
