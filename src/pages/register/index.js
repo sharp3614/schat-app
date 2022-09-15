@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useFormik } from 'formik'
 
 import Button from '../../components/button'
 import Input from '../../components/input'
-import { register } from '../../constants/firebase'
 import { registerSchema } from '../../constants/authYup'
 import Style from './style.module.scss'
+import { useAuth } from '../../context/useAuth'
 
 
 const Register = () => {
 
+    let fileRef = useRef()
+    const {register} = useAuth()
     const formik = useFormik({
         initialValues: {
             username: '',
@@ -19,7 +21,7 @@ const Register = () => {
         },
         validationSchema: registerSchema,
         onSubmit: values => {
-            register(values.email, values.password)
+            register(values.username, values.email, values.password, fileRef.current.files[0])
         }
     })
 
@@ -53,6 +55,12 @@ const Register = () => {
                     onChange={formik.handleChange}
                     inputValue={formik.values.password}
                     error={formik.errors.password}
+                />
+                <Input
+                    title="Avatar"
+                    name="avatar"
+                    type="file"
+                    inputRef={fileRef}
                 />
 
                 <div className={Style.Footer}>
