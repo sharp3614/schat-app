@@ -1,16 +1,24 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useChat } from '../../context/chat'
 import { useAuth } from '../../context/useAuth'
 
 import Style from './style.module.scss'
 const Message = (props) => {
 
+    const ref = useRef()
     const { message } = props
     const { currentUser } = useAuth()
     const { action } = useChat()
     const time = message.date.toDate().toString().substring(16, 21) // getting message sending time
+
+
+    useEffect(() => { //to go to the last message
+        ref.current?.scrollIntoView({ behavior: "smooth" });
+      }, [message]);
+
+
     return (
-        <>
+        <div ref={ref}>
             {
                 message.senderId === currentUser.uid ?
                 <div className={Style.chat1}>
@@ -30,7 +38,7 @@ const Message = (props) => {
                 </div>
 
             }
-        </>
+        </div>
     )
 }
 
