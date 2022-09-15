@@ -18,7 +18,6 @@ export const AuthContextProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password)
-      console.log(res.user.uid);
     }
     catch (e) {
       console.log(e.message)

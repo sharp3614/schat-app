@@ -1,6 +1,7 @@
+import { signOut } from 'firebase/auth'
 import { doc, onSnapshot } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
-import { db } from '../../constants/firebase'
+import { auth, db } from '../../constants/firebase'
 import { useChat } from '../../context/chat'
 import { useAuth } from '../../context/useAuth'
 import Search from '../search'
@@ -46,6 +47,21 @@ const Sidebar = () => {
                         </div>
                     ))
                 }
+            </div>
+            <div className={Style.user}>
+                <div className={Style.avatar}>
+                    <img src={currentUser.photoURL} alt="setting_ico" />
+                    <div className={Style.userInfo}>
+                        <h4>{currentUser.displayName}</h4>
+                        <small>{currentUser.email}</small>
+                    </div>
+                    <button onClick={
+                        () => {
+                            signOut(auth)
+                            setAction({ user: "", chatId: "null" })
+                        }}
+                    >logout</button>
+                </div>
             </div>
         </div>
     )
