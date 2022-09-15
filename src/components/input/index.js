@@ -2,14 +2,16 @@ import React from 'react'
 import Style from './style.module.scss'
 
 const Input = (props) => {
-  const { title, name, type, placeholder, inputRef, inputValue, onChange, error } = props
+  const { title, name, type, placeholder, inputRef, inputValue, onChange, error, onKeyDown } = props
   return (
     <div className={Style.Container}>
-      <label
+      {title &&
+        <label
         htmlFor={name}
       >
         {title}
       </label>
+      }
       <input
         ref={inputRef}
         value={inputValue}
@@ -18,6 +20,7 @@ const Input = (props) => {
         type={type}
         placeholder={placeholder}
         onChange={onChange}
+        onKeyDown={onKeyDown}
       />
       {error && <span className={Style.warning}>{error}</span>}
     </div>

@@ -4,9 +4,10 @@ import Style from './style.module.scss'
 
 const Button = (props) => {
   const { clss, title, click } = props
-  
+
   return (
     <button
+      type='button'
       className={Style.Btn + " " + clss}
       onClick={() => click()}
     >
