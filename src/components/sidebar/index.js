@@ -1,13 +1,16 @@
 import { signOut } from 'firebase/auth'
 import { doc, onSnapshot } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { auth, db } from '../../constants/firebase'
 import { useChat } from '../../context/chat'
 import { useAuth } from '../../context/useAuth'
+import Dropdown from '../dropdown'
 import Search from '../search'
 
 import Style from './style.module.scss'
 const Sidebar = () => {
+    const navigate = useNavigate()
     const { currentUser } = useAuth()
     const { setAction } = useChat()
     const [chats, setChats] = useState([])
@@ -50,17 +53,14 @@ const Sidebar = () => {
             </div>
             <div className={Style.user}>
                 <div className={Style.avatar}>
-                    <img src={currentUser.photoURL} alt="setting_ico" />
+                    <img className={Style.avatar_img} src={currentUser.photoURL} alt="setting_ico" />
                     <div className={Style.userInfo}>
                         <h4>{currentUser.displayName}</h4>
                         <small>{currentUser.email}</small>
                     </div>
-                    <button onClick={
-                        () => {
-                            signOut(auth)
-                            setAction({ user: "", chatId: "null" })
-                        }}
-                    >logout</button>
+                    <div>
+                    <Dropdown />
+                    </div>
                 </div>
             </div>
         </div>
