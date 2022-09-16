@@ -5,7 +5,7 @@ import { useAuth } from '../context/useAuth'
 const AuthLayout = () => {
 
     const { currentUser } = useAuth()
-    if (currentUser) return <Navigate to={'/'} />
+    if (currentUser) return <Navigate replace to={'/'} />
     return <Outlet />
 }
 

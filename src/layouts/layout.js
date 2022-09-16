@@ -6,7 +6,7 @@ import Style from './style.module.scss'
 const Layout = () => {
 
     const { currentUser } = useAuth()
-    if (currentUser === null) return <Navigate to={'/login'} />
+    if (currentUser === null) return <Navigate replace to={'/login'} />
     return (
         <div className={Style.Container}>
             <Outlet />
