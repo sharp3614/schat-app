@@ -17,6 +17,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
+    overflow: auto;
     .chat {
       cursor: pointer;
       padding: 0.5rem 0.6rem;
