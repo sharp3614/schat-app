@@ -1,8 +1,6 @@
-import { signOut } from 'firebase/auth'
 import { doc, onSnapshot } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { auth, db } from '../../constants/firebase'
+import { db } from '../../constants/firebase'
 import { useChat } from '../../context/chat'
 import { useAuth } from '../../context/useAuth'
 import Dropdown from '../dropdown'
@@ -10,7 +8,6 @@ import Search from '../search'
 
 import Style from './style.module.scss'
 const Sidebar = () => {
-    const navigate = useNavigate()
     const { currentUser } = useAuth()
     const { setAction } = useChat()
     const [chats, setChats] = useState([])
