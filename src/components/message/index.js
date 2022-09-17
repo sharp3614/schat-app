@@ -22,7 +22,7 @@ const Message = (props) => {
             {
                 message.senderId === currentUser.uid ?
                 <div className={Style.chat1}>
-                    <div key={message.id} className={Style.Message + " " + Style.user1}>
+                    <div  className={Style.Message + " " + Style.user1}>
                         <span>{message.text}</span>
                         <span>{time}</span>
                     </div>
@@ -31,7 +31,7 @@ const Message = (props) => {
                 : 
                 <div className={Style.chat2}>
                     <img src={action.user.photoURL} width={30} height={30} alt="img" />
-                    <div key={message.id} className={Style.Message + " " + Style.user2}>
+                    <div  className={Style.Message + " " + Style.user2}>
                         <span>{message.text}</span>
                         <span>{time}</span>
                     </div>

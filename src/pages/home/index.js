@@ -50,15 +50,15 @@ const Home = () => {
             <div className={Style.messages}>
               {
                 messages && messages.map(message => (
-                  <Message message={message} />
+                  <Message key={message.id} message={message} />
                 ))
               }
             </div>
+          </div>
             <div className={Style.send}>
               <Input inputValue={text} placeholder="Send a message..." onChange={(e) => setText(e.target.value)} />
               <Button title="Send" click={handleSend} />
             </div>
-          </div>
         </div>
       }
     </div>
