@@ -1,0 +1,27 @@
+.Setting {
+  width: 80%;
+  height: 90%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.57);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.3px);
+  -webkit-backdrop-filter: blur(10.3px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  .back{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    .btn_back{
+        cursor: pointer;
+        border: none;
+        border-radius: .2rem;
+        padding: .5rem 1rem;
+    }
+  }
+  .avatar_update{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+  }
+}
