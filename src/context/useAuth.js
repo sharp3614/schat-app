@@ -7,6 +7,7 @@ import {
   getDownloadURL
 } from 'firebase/storage'
 import { doc, setDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 
 export const AuthContext = createContext()
@@ -20,7 +21,7 @@ export const AuthContextProvider = ({ children }) => {
       const res = await signInWithEmailAndPassword(auth, email, password)
     }
     catch (e) {
-      console.log(e.message)
+      toast.error("Incorrect email or password")
     }
   }
 
@@ -41,7 +42,7 @@ export const AuthContextProvider = ({ children }) => {
             }).then(() => {
               console.log("Profile updated!")
             }).catch((error) => {
-              console.log("An error occurred");
+              toast.error("An error occurred");
             })
 
             //Created empty user chats in firestore
@@ -61,7 +62,7 @@ export const AuthContextProvider = ({ children }) => {
 
     }
     catch (e) {
-      console.log("---->", e.message)
+      toast.error(e.message)
     }
   }
 

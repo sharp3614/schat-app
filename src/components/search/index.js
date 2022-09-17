@@ -6,6 +6,7 @@ import { useAuth } from '../../context/useAuth'
 import Input from '../input'
 
 import Style from './style.module.scss'
+import { toast } from 'react-toastify'
 
 const Search = () => {
 
@@ -23,7 +24,7 @@ const Search = () => {
             });
         }
         catch (error) {
-            console.log("------>", error.message)
+            toast.error(error.message)
         }
 
     }
@@ -66,7 +67,7 @@ const Search = () => {
 
             }
         } catch (error) {
-            console.log(error.message)
+            toast.error(error.message)
         }
         setUser(null)
         setUsername("")

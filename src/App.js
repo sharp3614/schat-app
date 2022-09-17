@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import ChatContextProvider from './context/chat';
 import { AuthContextProvider } from './context/useAuth';
@@ -8,6 +9,7 @@ import Home from './pages/home';
 import Login from './pages/login';
 import Register from './pages/register';
 import Setting from './pages/setting';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
             </Route>
           </Routes>
         </div>
+        <ToastContainer />
       </ChatContextProvider>
     </AuthContextProvider>
   );
